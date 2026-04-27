@@ -1,0 +1,498 @@
+:root {
+  /* 主要背景 - 極淺粉櫻色 (像軟綿綿的雲朵) */
+  --bg-color: #fff5f7;
+
+  /* 次要區塊 - 蜜桃粉 (增加甜美感) */
+  --surface-color: #ffe4e8;
+
+  /* 強調色 - 夢幻薄荷綠或粉藍 (馬卡龍經典對比) */
+  --primary-color: #b2e2f2; /* 粉藍：清爽舒壓 */
+  --accent-color: #ffb7c5; /* 櫻花粉：重點標籤或點綴 */
+  --primary-hover: #a0d6e8;
+
+  /* 文字色彩 - 深灰紫色 (比純黑更柔和，像藍莓果醬) */
+  --text-main: #5d545b;
+  --text-muted: #9e8f9a;
+  /* 新增：故事線條顏色 (柔和灰紫) */
+  --line-color: #e0d7dd;
+  /* 物理質感 - 更加圓潤的設定 */
+  --radius-pill: 50px; /* 膠囊型圓角：用於按鈕或標籤 */
+  --radius-lg: 30px; /* 超大圓角：用於卡片容器 */
+
+  /* 糖果般的柔焦陰影 */
+  --shadow-macaron: 0 10px 25px rgba(255, 183, 197, 0.2);
+
+  /* 呼吸感的動畫 */
+  --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/* 建議搭配你的網頁風格使用 */
+
+/* 簡單的應用範例 */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: "Noto Sans TC", sans-serif;
+}
+header {
+  background-color: var(--primary-color);
+}
+footer {
+  background-color: var(--accent-color);
+}
+.card {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem;
+  transition: var(--transition-smooth);
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px); /* 輕微上浮感 */
+}
+.btn-sakura {
+  background-color: #f8a5c2;
+  color: #fff;
+}
+.btn-sakura:hover {
+  background-color: #f8a5c2;
+  font-weight: 600;
+  transform: translateY(-2px); /* 輕微上浮感 */
+}
+.btn-sakura-outline {
+  border: 2px solid #f8a5c2;
+  color: #f8a5c2;
+}
+.btn-sakura-outline:hover {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  transform: translateY(-2px); /* 輕微上浮感 */
+}
+.fa-brands:hover {
+  transform: translateY(-5px); /* 輕微上浮感 */
+  transition: all 0.3s;
+}
+hr {
+  color: var(--text-muted);
+}
+/*社群顏色*/
+.social-line {
+  color: #00b900;
+} /* 稍微沉穩的綠 */
+.social-ig {
+  color: #c13584;
+} /* 質感的紫紅 */
+.social-threads {
+  color: #1a1a1a;
+} /* 深炭黑 */
+.social-yt {
+  color: #cd201f;
+} /* 深寶石紅 */
+
+.form-control {
+  width: 100% !important;
+  padding: 12px 16px;
+  margin-top: 8px;
+  border: 2px solid #ffe4e8; /* 使用剛才的次要區塊色 */
+  background-color: #ffffff;
+  border-radius: 12px; /* 圓角是擁抱感的靈魂 */
+  font-size: 16px;
+  color: #5d545b;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box; /* 確保寬度計算正確 */
+}
+
+/* 當使用者點擊輸入框時的「發光」效果 */
+input:focus {
+  border-color: #ffb7c5; /* 轉為粉櫻色 */
+  box-shadow: 0 0 10px rgba(255, 183, 197, 0.3); /* 像光暈一樣散開 */
+}
+
+/* 讓 Label 看起來更精緻 */
+label {
+  font-weight: 600;
+  color: #9e8f9a;
+  font-size: 14px;
+  margin-left: 4px;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+section {
+  padding: 30px 0;
+}
+
+/* 左側圖片容器 */
+.col-5 img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-macaron);
+  transition: var(--transition-bounce);
+  border: 8px solid #fff; /* 拍立得相框感 */
+}
+
+.col-5 img:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+/* 右側計數器區塊容器 */
+.col-md-7 {
+  align-items: center; /* 垂直置中 */
+}
+
+/* 獨立計數器卡片 */
+[class*="counter"] {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px); /* 毛玻璃效果 */
+  border: 2px solid #fff;
+  border-radius: var(--radius-lg);
+  padding: 20px 10px;
+  text-align: center;
+  transition: var(--transition-bounce);
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+[class*="counter"]:hover {
+  background: var(--surface-color);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-macaron);
+}
+
+/* 文字標題 - 「內容」 */
+[class*="counter"] p:first-child {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+/* 數字部分 - 「100」 */
+[class*="counter"] p:last-child {
+  color: var(--text-main);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  font-family: "Arial Rounded MT Bold", sans-serif; /* 圓體數字 */
+}
+
+/* 給四個卡片一點點顏色變化 */
+.counter01 {
+  border-bottom: 5px solid var(--primary-color);
+}
+.counter02 {
+  border-bottom: 5px solid var(--accent-color);
+}
+.counter03 {
+  border-bottom: 5px solid var(--primary-color);
+}
+.counter04 {
+  border-bottom: 5px solid var(--accent-color);
+}
+/* 1. 垂直主軌道 ( get-line ) */
+.get-line {
+  position: relative;
+  align-items: center; /* 垂直置中內容 */
+}
+@media (max-width: 767px) {
+  .carousel-item > img {
+    height: 300px;
+    width: auto;
+  }
+  .position-m-relative {
+    position: relative;
+  }
+}
+/* 只有在桌機版顯示中線 */
+@media (min-width: 768px) {
+  .carousel-item > img {
+    width: 100%;
+  }
+  .get-line::before {
+    position: absolute;
+    content: "";
+    /* 優化：實線改圓點虛線，像縫紉線一樣 */
+    border-left: 4px dashed var(--line-color);
+    top: 0;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+}
+
+/* 2. 連結點 ( get-dot ) - 我們將點放在容器上，並修正對齊 */
+.get-dot {
+  position: relative;
+  z-index: 2; /* 確保圓點在線條上方 */
+}
+
+@media (min-width: 768px) {
+  .get-dot::before {
+    position: absolute;
+    content: "🐾"; /* [彩蛋] 使用肉球圖案 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+
+    /* 優化：方形改圓形，毛玻璃質感 */
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
+    border: 4px solid var(--accent-color); /* 櫻花粉邊框 */
+    border-radius: 50%; /* 變成圓形 */
+
+    top: 50%; /* 垂直置中 */
+    height: 35px; /* 稍微放大 */
+    width: 35px;
+
+    /* 修正置中邏輯 */
+    transform: translate(-50%, -50%);
+    box-shadow: var(--shadow-macaron);
+    transition: var(--transition-bounce);
+  }
+
+  /* 調整左右對齊的圓點位置 */
+  /* 當圖片在左邊(.col-md-6)時，點在右側邊界 100% 處 */
+  .row:not(.flex-row-reverse) .col-md-6.get-dot::before {
+    left: 100%;
+  }
+
+  /* 當圖片在右邊(.col-md-6)時，點在左側邊界 0% 處 */
+  .row.flex-row-reverse .col-md-6.get-dot::before {
+    left: 0%;
+  }
+}
+
+/* 圖片美化：拍立得質感 */
+.get-line img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-macaron);
+  border: 12px solid #fff; /* 厚實的白邊 */
+  transition: var(--transition-bounce);
+}
+
+.get-line img:hover {
+  transform: scale(1.03) rotate(2deg);
+}
+
+.get-line p {
+  color: var(--text-muted);
+  line-height: 1.9;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+/* 馬卡龍風格按鈕基礎設定 */
+.btn-macaron {
+  background-color: var(--accent-color); /* 櫻花粉 */
+  color: white !important;
+  border: none;
+  border-radius: var(--radius-pill); /* 膠囊型 */
+  padding: 5px 10px;
+  font-weight: 700;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(255, 183, 197, 0.4);
+  transition: var(--transition-bounce);
+  letter-spacing: 1px;
+}
+
+/* 懸停效果：顏色微變並往上浮 */
+.btn-macaron:hover {
+  background-color: var(--primary-color); /* 變換成粉藍色 */
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(178, 226, 242, 0.5);
+}
+
+/* 點擊時的縮回感 */
+.btn-macaron:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* 調整 Caption 位置確保按鈕不被遮擋 */
+.carousel-caption {
+  padding-bottom: 40px;
+}
+/* 主標題樣式 */
+h2,
+h5 {
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: 1.5px; /* 增加字距，呼吸感更強 */
+  line-height: 1.4;
+}
+
+/* 讓標題帶有一點點彩色點綴 (例如前兩個字變色) */
+h2::first-letter {
+  color: var(--accent-color);
+  font-size: 1em;
+}
+
+/* 輪播圖大標題：加上微小的發光感，防止被背景吃掉 */
+.carousel-caption h5 {
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.8),
+    2px 2px 4px rgba(255, 183, 197, 0.2);
+  margin-bottom: 15px;
+}
+
+/* 2. 把箭頭圖示變色並圓潤化 */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--accent-color); /* 使用你的櫻花粉 */
+  background-size: 50% 50%; /* 縮小箭頭比例，留白更多比較精緻 */
+  border-radius: 50%; /* 圓點造型 */
+  width: 45px;
+  height: 45px;
+  border: 3px solid #fff; /* 白邊框增加甜點感 */
+  box-shadow: var(--shadow-macaron);
+  transition: var(--transition-bounce);
+}
+
+/* 3. 懸停時變色 (變粉藍) */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  background-color: var(--primary-color);
+  transform: scale(1.1);
+}
+.sec-bg {
+  background-color: var(--surface-color);
+}
+.roller {
+  position: relative;
+  overflow: hidden;
+  margin: 5px 0;
+}
+.roller:hover .roller-slide {
+  top: 0%;
+  background-size: cover;
+  transition: all 0.5s;
+}
+.roller-slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: -100%;
+  left: 0;
+}
+.roller-slide.egg {
+  background-image: url(../img/egg02.jpg);
+}
+.roller-slide.eggplant {
+  background-image: url(../img/eggplant02.jpeg);
+}
+.roller-slide.frog {
+  background-image: url(../img/frog02.jpg);
+}
+.roller-slide.peanut {
+  background-image: url(../img/peanut02.jpg);
+}
+.roller-slide .btn {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* --- 基礎優化 --- */
+:root {
+  /* 補充你原有的變數，確保色調統一 */
+  --soft-yellow: #fdf5e6; /* 奶油黃 */
+  --macaron-yellow: #fff9de; /* 淺馬卡龍黃 */
+}
+
+.nav-link {
+  font-weight: 600;
+  margin: 0 5px;
+  transition: var(--transition-bounce);
+}
+
+.nav-link:hover {
+  color: var(--accent-color) !important;
+  transform: scale(1.05);
+}
+
+/* --- 2. 表格美化 (Table) --- */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* 讓行與行之間有間隙，看起來更輕盈 */
+  margin-top: 20px;
+}
+
+thead th {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+thead th:first-child {
+  border-radius: 15px 0 0 15px;
+}
+thead th:last-child {
+  border-radius: 0 15px 15px 0;
+}
+
+tbody tr {
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: var(--transition-bounce);
+}
+
+tbody tr:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-macaron);
+}
+
+tbody td {
+  padding: 15px;
+  border: none;
+  vertical-align: middle;
+}
+
+/* 狀態標籤 (Tags) */
+.tag {
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tag-limited {
+  background-color: #ffdae0;
+  color: #ef6c8a;
+}
+.tag-new {
+  background-color: #e0f4ff;
+  color: #4ba3d1;
+}
+.tag-classic {
+  background-color: #f1f1f1;
+  color: #777;
+}
+
+/* --- 5. 底部裝飾 (Footer) --- */
+footer {
+  background: linear-gradient(to right, var(--accent-color), #f8a5c2);
+  border-top-left-radius: 50% 20px; /* 微微的波浪感 */
+  border-top-right-radius: 50% 20px;
+  padding: 40px 0;
+}
+.br-1 {
+  border-radius: 1rem;
+}

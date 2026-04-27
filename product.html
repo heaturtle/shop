@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>商品列表</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.24/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="container py-2">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">Navbar</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/"
+                    >首頁</a
+                  >
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/product.html">商品清單</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    系列清單
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">經典系列</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">動物系列</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">有趣系列</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <div>
+                <button
+                  class="btn btn-sakura"
+                  data-bs-toggle="modal"
+                  data-bs-target="#registerModal"
+                  type="submit"
+                >
+                  註冊
+                </button>
+                <button
+                  class="btn btn-sakura-outline"
+                  data-bs-toggle="modal"
+                  data-bs-target="#LoginModal"
+                  type="submit"
+                >
+                  登入
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- 註冊modal -->
+    <div class="modal" id="registerModal" tabindex="-1">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">加入我們</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row align-items-center">
+              <div class="col-6 signup-container">
+                <div class="input-group">
+                  <label for="reg-username">用戶名稱</label>
+                  <input
+                    type="text"
+                    id="reg-username"
+                    name="username"
+                    placeholder="英文加數字最多八碼"
+                    required
+                  />
+                </div>
+
+                <div class="input-group">
+                  <label for="reg-email">電子郵件</label>
+                  <input
+                    type="email"
+                    id="reg-email"
+                    name="email"
+                    placeholder="example@mail.com"
+                    required
+                  />
+                </div>
+
+                <div class="input-group">
+                  <label for="reg-password">設定密碼</label>
+                  <input
+                    type="password"
+                    id="reg-password"
+                    name="password"
+                    placeholder="至少 8 位字元"
+                    required
+                  />
+                </div>
+
+                <div class="input-group">
+                  <label for="confirm-password">確認密碼</label>
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    placeholder="再次輸入密碼"
+                    required
+                  />
+                </div>
+                <div class="d-flex align-content-center">
+                  <input type="checkbox" class="col-1" id="terms" required />
+                  <label for="terms" class="label-inline mt-2"
+                    >我已閱讀並同意 <a href="#">服務條款</a></label
+                  >
+                </div>
+              </div>
+              <div class="col-6">
+                <ul style="list-style: none; padding: 0">
+                  <li style="margin-bottom: 12px">
+                    <strong>🍭 正品保證：</strong>
+                    我們堅持只提供正版優質好物，讓您收到的每一份包裹都充滿驚喜與安心。
+                  </li>
+                  <li style="margin-bottom: 12px">
+                    <strong>📦 溫柔配送：</strong>
+                    您的寶貝將經過精細包裝，通常於下單後 3-5
+                    個工作天內，帶著滿滿暖意飛奔向您。
+                  </li>
+                  <li style="margin-bottom: 12px">
+                    <strong>💌 七天鑑賞：</strong>
+                    提供 7
+                    天猶豫期，但請保持商品「全新未拆封」與「包裝完整」，讓它能以最美的樣子尋找下一個擁抱。
+                  </li>
+                  <li style="margin-bottom: 12px">
+                    <strong>🧸 完美主義：</strong>
+                    毛絨玩偶、手工製品難免有些微表情差異，這正是它們獨一無二的靈魂，不屬於瑕疵範圍喔！
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#LoginModal"
+              >已經有帳號？</a
+            >
+            <button type="button" class="btn btn-sakura">註冊</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 登入modal -->
+    <div class="modal" id="LoginModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">歡迎回來</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <label for="username">帳號</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="您的電子郵件或帳號"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="password">密碼</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="請輸入密碼"
+                required
+              />
+              <div class="forgot-password">
+                <a href="#" class="text-black-50">忘記密碼？</a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal"
+              >還沒有帳號？</a
+            >
+            <button type="button" class="btn btn-sakura">登入</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container main-content">
+      <div class="d-flex justify-content-between align-items-center mb-5">
+        <h2 class="fw-bold border-start border-4 border-warning ps-3">
+          精選商品
+        </h2>
+        <button
+          type="button"
+          class="btn btn-success shadow-sm"
+          data-bs-toggle="modal"
+          data-bs-target="#addModal"
+        >
+          <i class="bi bi-plus-lg"></i> + 新增商品資料
+        </button>
+      </div>
+      <div class="row g-3 mb-4 bg-white p-3 rounded-3 shadow-sm mx-0">
+        <div class="col-md-5">
+          <input
+            type="text"
+            id="search-input"
+            class="form-control mt-0"
+            placeholder="搜尋商品名稱..."
+          />
+        </div>
+
+        <div class="col-md-3">
+          <select class="form-select" id="filter-status">
+            <option value="全部">所有供應狀態</option>
+            <option value="現貨">現貨</option>
+            <option value="可預購">可預購</option>
+            <option value="絕版品">絕版品</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" id="list">
+        <div class="col-md-3 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="overflow-hidden">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="商品名稱"
+                class="card-img-top"
+                style="height: 220px; object-fit: cover"
+              />
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold mb-2">商品範例名稱</h5>
+              <p class="card-text price-text fs-5 mb-3">NT$ 1,280</p>
+
+              <div class="mt-auto">
+                <button
+                  class="btn btn-outline-secondary w-100 rounded-pill mb-2"
+                >
+                  查看詳情
+                </button>
+                <button class="btn btn-primary w-100 rounded-pill">
+                  立即購買
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="addModal"
+      tabindex="-1"
+      aria-labelledby="addModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">✨ 新增商品項目</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <form id="productForm">
+              <div class="mb-3">
+                <label for="p-name" class="form-label fw-bold">產品名稱</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="p-name"
+                  placeholder="請輸入商品名稱"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="p-price" class="form-label fw-bold"
+                    >金額 (NT$)</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="p-price"
+                    placeholder="999"
+                    required
+                    step="100"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="p-status" class="form-label fw-bold"
+                    >供應狀態</label
+                  >
+                  <select class="form-select" id="p-status">
+                    <option value="現貨" selected>現貨</option>
+                    <option value="絕版品">絕版品</option>
+                    <option value="可預購">可預購</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="p-img-url" class="form-label fw-bold"
+                  >商品圖片網址 (URL)</label
+                >
+                <input
+                  type="url"
+                  class="form-control"
+                  id="p-img-url"
+                  placeholder="https://..."
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer border-0 p-4">
+            <button
+              type="button"
+              class="btn btn-light px-4"
+              data-bs-dismiss="modal"
+            >
+              取消
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary px-4 shadow-sm"
+              id="save-btn"
+            >
+              儲存商品
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content bg-dark border-0">
+          <div class="modal-header border-0">
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="ratio ratio-16x9">
+              <iframe
+                src=""
+                id="videoIframe"
+                allowfullscreen
+                allow="autoplay"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container py-2">
+        <div class="text-center">
+          <a href="#" class="text-decoration-none">
+            <i class="fa-brands fa-instagram fa-2x text-white"></i>
+          </a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-brands fa-line fa-2x text-white"></i>
+          </a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-brands fa-youtube fa-2x text-white"></i>
+          </a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-brands fa-threads fa-2x text-white"></i>
+          </a>
+        </div>
+        <p class="text-center text-white">copyright</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      $(function () {
+        let allProducts = [];
+        $.ajax({
+          url: "https://api.airtable.com/v0/appR01eDTvjCtl9cG/carb",
+          method: "GET",
+          headers: {
+            Authorization:
+              "Bearer patLOPQz6OQ8H1UIz.1f9448f92c1103d0de68a2a17dc127d26664549d1ec490751fe51702ae8d3d29",
+            "Content-Type": "application/json",
+          },
+          success: function (data) {
+            const productList = normalize(data.records);
+            allProducts = productList;
+            console.log(allProducts);
+            renderCard(productList);
+          },
+          error: function (xhr, status, error) {
+            console.log("錯誤：", error);
+            console.log(xhr.responseText);
+          },
+        });
+        //新增商品
+        $("#save-btn").click(function () {
+          Swal.fire({
+            title: "是否要新增商品？",
+            showCancelButton: true,
+            confirmButtonText: "確定",
+            cancelButtonText: "取消",
+            showLoaderOnConfirm: true,
+            preConfirm: async () => {
+              try {
+                // 1. 抓取欄位值
+                const productName = $("#p-name").val().trim();
+                const status = $("#p-status").val();
+                const imgUrl = $("#p-img-url").val().trim();
+
+                // 處理價格：確保它是數字且不是 NaN
+                const rawPrice = $("#p-price").val();
+                const priceValue =
+                  rawPrice && !isNaN(rawPrice) ? Number(rawPrice) : 0;
+
+                // 2. 簡單驗證
+                if (!productName) {
+                  throw new Error("商品名稱為必填！");
+                }
+
+                // 這裡你可以決定：如果沒填網址，是報錯還是給預設圖？
+                if (!imgUrl) {
+                  throw new Error("請提供圖片網址！");
+                }
+
+                // 3. 直接發送到 Airtable
+                const airtableRes = await $.ajax({
+                  type: "POST",
+                  url: "https://api.airtable.com/v0/appR01eDTvjCtl9cG/carb",
+                  headers: {
+                    Authorization: "Bearer pat",
+                    "Content-Type": "application/json",
+                  },
+                  data: JSON.stringify({
+                    records: [
+                      {
+                        fields: {
+                          // 關鍵 1：名稱必須與 Airtable 欄位標題完全一致
+                          ProductName: productName,
+
+                          // 關鍵 2：確保是數字型態。如果輸入 100，傳過去必須是 100 而不是 "100"
+                          Price: Number(priceValue),
+
+                          Status: status,
+
+                          // 關鍵 3：附件欄位的標準格式
+                          ProductImg: [{ url: imgUrl }],
+                        },
+                      },
+                    ],
+                  }),
+                });
+                return airtableRes;
+              } catch (error) {
+                Swal.showValidationMessage(
+                  `發生錯誤: ${error.message || "資料格式不對"}`,
+                );
+              }
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire("新增成功！", "", "success").then(() => {
+                location.reload();
+              });
+            }
+          });
+        });
+
+        function normalize(clean) {
+          return clean.map(function (item) {
+            const ProductName = (item.fields.ProductName ?? "").trim();
+            const Notes = (item.fields.Notes ?? "").trim();
+            const Price = item.fields.Price ?? 0;
+            const Status = (item.fields.Status ?? "").trim();
+            const imgURL = (item.fields.ProductImg?.[0]?.url ?? "").trim();
+            const videoUrl = (item.fields.videoUrl ?? "").trim();
+            return {
+              ProductName: ProductName || "產品名稱",
+              Notes: Notes || "產品備註",
+              Price: Price || 999999,
+              Status: Status || "無庫存",
+              ProductImg: imgURL || "/img/noshow.jpg",
+              videoUrl: videoUrl || "",
+            };
+          });
+        }
+        //畫出所有card
+        function renderCard(data) {
+          $("#list").empty();
+          data.forEach(function (item) {
+            // 1. 判斷是否為現貨
+            const isAvailable = item.Status === "現貨";
+
+            // 2. 判斷是否有影片網址 (檢查是否存在且不為空字串)
+            const hasVideo = item.videoUrl && item.videoUrl.trim() !== "";
+            const videoBtnHTML = hasVideo
+              ? `<button class="btn btn-outline-info w-100 mt-2 btn-view-video" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="${item.videoUrl}">360度影片</button>`
+              : "";
+            const disabledAttr = isAvailable ? "" : "disabled";
+            const btnClass = isAvailable
+              ? "btn-primary btn-goshop"
+              : "btn-secondary disabled";
+
+            let strHTML = `
+            <div class="col-md-3 mb-4 product-card">
+              <div class="card h-100 shadow-sm">
+                <img src="${item.ProductImg}" alt="${item.ProductName}" class="card-img-top w-100" style="height: 200px; object-fit: cover;" />
+
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title fw-bold">${item.ProductName}</h5>
+                  <p class="card-text text-danger fs-5">€ ${item.Price}</p>
+
+                  <button class="btn btn-status ${btnClass} w-100 mt-auto" ${disabledAttr}>${item.Status}</button>
+
+                  ${videoBtnHTML}
+                </div>
+              </div>
+            </div>
+            `;
+
+            $("#list").append(strHTML);
+          });
+        }
+        //處理影片網址
+        function getEmbedUrl(url) {
+          if (!url) return "";
+
+          let videoId = "";
+
+          // 處理 Shorts: youtube.com/shorts/ID
+          if (url.includes("shorts/")) {
+            videoId = url.split("shorts/")[1].split("?")[0];
+          }
+          // 處理普通影片: youtube.com/watch?v=ID
+          else if (url.includes("v=")) {
+            videoId = url.split("v=")[1].split("&")[0];
+          }
+          // 處理已經是嵌入格式或手機分享格式
+          else if (url.includes("youtu.be/")) {
+            videoId = url.split("youtu.be/")[1].split("?")[0];
+          }
+
+          return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+        }
+        $(document).on("click", ".btn-goshop", function () {
+          window.open(
+            "https://myship.7-11.com.tw/general/detail/GM2409062800252",
+            "_blank",
+          );
+        });
+        $(document).on("click", ".btn-view-video", function () {
+          const videoUrl = $(this).data("video");
+          $("#videoIframe").attr("src", getEmbedUrl(videoUrl));
+        });
+        $(document).on("hidden.bs.modal", "#videoModal", function () {
+          $("#videoIframe").attr("src", "");
+        });
+        //排序
+        $("#search-input").change(function () {
+          let input = $(this).val().toLowerCase();
+          console.log(input);
+          // 抓取所有的「欄位容器」
+          $(".product-card").each(function () {
+            // 在目前的這張卡片裡找到標題文字
+            let productName = $(this).find(".card-title").text().toLowerCase();
+
+            // 比對關鍵字
+            if (productName.includes(input)) {
+              $(this).show(); // 包含關鍵字就顯示
+            } else {
+              $(this).hide(); // 不包含就隱藏
+            }
+          });
+        });
+        $("#filter-status").change(function () {
+          let selectStatus = $(this).val();
+          console.log(selectStatus);
+          $(".product-card").each(function () {
+            let productStatus = $(this).find(".btn-status").text();
+            if (selectStatus === "全部" || productStatus === selectStatus) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
