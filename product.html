@@ -67,8 +67,9 @@
                   </ul>
                 </li>
               </ul>
-              <div>
+              <div class="d-flex flex-row">
                 <button
+                  id="register-btn"
                   class="btn btn-sakura"
                   data-bs-toggle="modal"
                   data-bs-target="#registerModal"
@@ -77,12 +78,30 @@
                   註冊
                 </button>
                 <button
+                  id="login-btn"
                   class="btn btn-sakura-outline"
                   data-bs-toggle="modal"
                   data-bs-target="#LoginModal"
                   type="submit"
                 >
                   登入
+                </button>
+
+                <div id="member-id" class="d-none"></div>
+                <button
+                  id="logout-btn"
+                  class="btn btn-sakura-outline d-none"
+                  type="submit"
+                >
+                  登出
+                </button>
+                <button
+                  id="control-btn"
+                  class="btn btn-sakura-outline d-none"
+                  type="submit"
+                  onclick="location.href = 'control.html'"
+                >
+                  前往控制台
                 </button>
               </div>
             </div>
