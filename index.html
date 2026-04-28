@@ -16,7 +16,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header id="header">
@@ -44,7 +44,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/product.html">商品清單</a>
+                  <a class="nav-link" href="product.html">商品清單</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a
@@ -352,11 +352,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-5 d-none d-md-block">
-            <img
-              src="./img/ricky-smile-1270x704.jpg"
-              alt="ricky"
-              class="w-100"
-            />
+            <img src="img/ricky-smile-1270x704.jpg" alt="ricky" class="w-100" />
           </div>
           <div class="col-md-7 col-12 row">
             <div class="col-6 col-lg-3">
@@ -393,7 +389,7 @@
         <div class="row d-flex flex-wrap flex-row-reverse get-line">
           <div class="col-12 col-md-6 get-dot">
             <img
-              src="/img/best-in-show-500x500-2.jpg"
+              src="img/best-in-show-500x500-2.jpg"
               alt="檢查"
               class="w-100 rounded-lg shadow"
             />
@@ -415,7 +411,7 @@
         <div class="row d-flex flex-wrap get-line">
           <div class="col-12 col-md-6 get-dot">
             <img
-              src="/img/mothers-day-500x500.jpg"
+              src="img/mothers-day-500x500.jpg"
               alt="連線"
               class="w-100 rounded-lg shadow"
             />
@@ -437,7 +433,7 @@
         <div class="row d-flex flex-wrap flex-row-reverse get-line">
           <div class="col-12 col-md-6 get-dot">
             <img
-              src="/img/puppies-500x500.jpg"
+              src="img/puppies-500x500.jpg"
               alt="包裝"
               class="w-100 rounded-lg shadow"
             />
@@ -464,28 +460,28 @@
             <div class="roller-slide egg">
               <a href="#" class="btn btn-macaron">立即收編</a>
             </div>
-            <img src="/img/egg01.jpg" alt="" class="w-100 br-1" />
+            <img src="img/egg01.jpg" alt="" class="w-100 br-1" />
             <h3 class="text-center">水煮蛋系列</h3>
           </div>
           <div class="col-6 col-md-3 roller">
             <div class="roller-slide eggplant">
               <a href="#" class="btn btn-macaron">立即收編</a>
             </div>
-            <img src="/img/eggplant01.jpg" alt="" class="w-100 br-1" />
+            <img src="img/eggplant01.jpg" alt="" class="w-100 br-1" />
             <h3 class="text-center">茄子系列</h3>
           </div>
           <div class="col-6 col-md-3 roller">
             <div class="roller-slide frog">
               <a href="#" class="btn btn-macaron">立即收編</a>
             </div>
-            <img src="/img/frog01.jpg" alt="" class="w-100 br-1" />
+            <img src="img/frog01.jpg" alt="" class="w-100 br-1" />
             <h3 class="text-center">青蛙系列</h3>
           </div>
           <div class="col-6 col-md-3 roller">
             <div class="roller-slide peanut">
               <a href="#" class="btn btn-macaron">立即收編</a>
             </div>
-            <img src="/img/peanut01.jpg" alt="" class="w-100 br-1" />
+            <img src="img/peanut01.jpg" alt="" class="w-100 br-1" />
             <h3 class="text-center">花生系列</h3>
           </div>
         </div>
@@ -496,7 +492,7 @@
       <div class="container">
         <div class="row justify-content-end align-items-center">
           <div class="col-12 col-md-5 h-100">
-            <img src="/img/hairdryer.jpg" class="w-100 br-1" alt="" />
+            <img src="img/hairdryer.jpg" class="w-100 br-1" alt="" />
           </div>
           <div class="col-md-7 col-12">
             <h2>換個髮型，可愛不變！</h2>
@@ -583,7 +579,7 @@
       </div>
       <div class="row justify-content-end">
         <div class="col-5 position-absolute top-0 d-none d-md-block">
-          <img src="./img/bunny-with-star.jpg" alt="Bunny" class="w-100 my-4" />
+          <img src="img/bunny-with-star.jpg" alt="Bunny" class="w-100 my-4" />
         </div>
       </div>
     </section>
@@ -604,21 +600,22 @@
             <i class="fa-brands fa-threads fa-2x text-white"></i>
           </a>
         </div>
-        <p class="text-center text-white">copyright</p>
+        <p class="text-center text-white">
+          此網頁僅供教育使用；勞動部中彰投分署-AI全端培訓班
+        </p>
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.24/dist/sweetalert2.all.min.js"></script>
     <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
-    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
-    <script src="/js/WOW.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
 
     <script>
       let flag_userName = false;
       let flag_password = false;
       let flag_retype_password = false;
-      let API_URL = "http://127.0.0.1:5000";
+      let API_URL = "https://test-acaq.onrender.com";
       $(function () {
         checkLoginStatus();
         //counterup
@@ -751,7 +748,7 @@
                   setLoginUI(response.data.username);
 
                   //將auth_token寫入cookie
-                  setCookie("uid01", response.data.auth_token, 7);
+                  setCookie("uid01", response.data.token, 7);
                 }
               });
             }
@@ -780,14 +777,15 @@
         document.cookie =
           "uid01=; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/;";
       });
-      $.ajax({
-        url: "https://randomuser.me/api/?results=8",
-        dataType: "json",
-        success: function (data) {
-          console.log(data);
-          rendertable(data);
-        },
-      });
+      //隨機人
+      //   $.ajax({
+      //     url: "https://randomuser.me/api/?results=8",
+      //     dataType: "json",
+      //     success: function (data) {
+      //       console.log(data);
+      //       rendertable(data);
+      //     },
+      //   });
       function rendertable(data) {
         const tbody = $("#intro");
         tbody.empty();
@@ -842,7 +840,13 @@
             }
           })
           .catch(function (error) {
-            console.log(error);
+            // 這行可以看到後端回傳的具體錯誤 JSON
+            if (error.response) {
+              console.log("後端報錯內容:", error.response.data);
+              console.log("HTTP 狀態碼:", error.response.status);
+            } else {
+              console.log("連線發生問題:", error.message);
+            }
           })
           .finally(function () {
             //always executed
@@ -867,7 +871,7 @@
         const d = new Date();
         d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
         let expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        document.cookie = `${cname}=${cvalue};${expires};path=/;SameSite=None;Secure`;
       }
     </script>
   </body>

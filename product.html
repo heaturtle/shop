@@ -16,7 +16,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header id="header">
@@ -244,7 +244,7 @@
         </h2>
         <button
           type="button"
-          class="btn btn-success shadow-sm"
+          class="btn btn-success shadow-sm d-none"
           data-bs-toggle="modal"
           data-bs-target="#addModal"
         >
@@ -442,13 +442,9 @@
       $(function () {
         let allProducts = [];
         $.ajax({
-          url: "https://api.airtable.com/v0/appR01eDTvjCtl9cG/carb",
+          url: "https://shop-api-fi0b.onrender.com/api/records",
           method: "GET",
-          headers: {
-            Authorization:
-              "Bearer patLOPQz6OQ8H1UIz.1f9448f92c1103d0de68a2a17dc127d26664549d1ec490751fe51702ae8d3d29",
-            "Content-Type": "application/json",
-          },
+
           success: function (data) {
             const productList = normalize(data.records);
             allProducts = productList;
@@ -493,11 +489,9 @@
                 // 3. 直接發送到 Airtable
                 const airtableRes = await $.ajax({
                   type: "POST",
-                  url: "https://api.airtable.com/v0/appR01eDTvjCtl9cG/carb",
-                  headers: {
-                    Authorization: "Bearer pat",
-                    "Content-Type": "application/json",
-                  },
+                  url: "https://shop-api-fi0b.onrender.com/api/records",
+                  contentType: "application/json",
+
                   data: JSON.stringify({
                     records: [
                       {
@@ -652,6 +646,86 @@
           });
         });
       });
+    </script>
+    <script>
+      let API_URL = "https://test-acaq.onrender.com";
+
+      $(function () {
+        checkLoginStatus();
+      });
+      //登出按鈕監聽
+      $("#logout-btn").click(function () {
+        document.cookie =
+          "uid01=; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/;";
+        location.href = "index.html";
+      });
+
+      // 2. 取得 Cookie 的函式
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      } // <--- 之前漏掉這個大括號
+
+      // 3. 檢查登入狀態
+      function checkLoginStatus() {
+        let token = getCookie("uid01");
+
+        if (!token) {
+          console.log("沒有token");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "請先登入會員",
+            allowOutsideClick: false,
+          }).then((result) => {
+            location.href = "index.html";
+          });
+          return; // <--- 重要：沒 Token 就停止往下執行
+        }
+
+        // 4. 驗證 Token 合法性
+        axios
+          .get(`${API_URL}/api/me`, {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          .then(function (response) {
+            console.log("驗證成功:", response);
+            if (response.status == 200) {
+              // 確保你有定義 setLoginUI 函式來切換 UI
+              if (typeof setLoginUI === "function") {
+                setLoginUI(response.data.username);
+              } else {
+                // 如果還沒寫 setLoginUI，先用簡易邏輯代替
+                $("#logout-btn").removeClass("d-none");
+              }
+            }
+          })
+          .catch(function (error) {
+            console.log("驗證失敗:", error);
+            Swal.fire("驗證失效", "請重新登入", "warning").then(() => {
+              location.href = "index.html";
+            });
+          });
+      }
+
+      // 簡易的 UI 切換範例
+      function setLoginUI(username) {
+        $("#logout-btn").removeClass("d-none");
+        $("#member-id").removeClass("d-none");
+        console.log("歡迎回來，" + username);
+        $("#member-id").html(`歡迎回來，${username}`);
+      }
     </script>
   </body>
 </html>
