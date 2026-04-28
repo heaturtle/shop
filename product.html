@@ -745,6 +745,26 @@
         console.log("歡迎回來，" + username);
         $("#member-id").html(`歡迎回來，${username}`);
       }
+      //設定登入後的狀態
+      function setLoginUI(username) {
+        //註冊登入按鈕消失
+        $("#register-btn").addClass("d-none");
+        $("#login-btn").addClass("d-none");
+        $("#logout-btn").removeClass("d-none");
+        $("#control-btn").removeClass("d-none");
+        $("#member-id").html(`歡迎回來：<span>${username}</span>`);
+        $("#member-id").removeClass("d-none");
+        $("#product-table").removeClass("d-none");
+      }
+      //登出狀態
+      function setLogoutUI() {
+        $("#register-btn").removeClass("d-none");
+        $("#login-btn").removeClass("d-none");
+        $("#logout-btn").addClass("d-none");
+        $("#control-btn").addClass("d-none");
+        $("#member-id").addClass("d-none");
+        $("#product-table").addClass("d-none");
+      }
     </script>
   </body>
 </html>
