@@ -68,15 +68,7 @@
                 </li>
               </ul>
               <div class="d-flex flex-row">
-                <button
-                  id="register-btn"
-                  class="btn btn-sakura"
-                  data-bs-toggle="modal"
-                  data-bs-target="#registerModal"
-                  type="submit"
-                >
-                  註冊
-                </button>
+             
                 <button
                   id="login-btn"
                   class="btn btn-sakura-outline"
@@ -109,103 +101,7 @@
         </nav>
       </div>
     </header>
-    <!-- 註冊modal -->
-    <div class="modal" id="registerModal" tabindex="-1">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">加入我們</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="row align-items-center">
-              <div class="col-6 signup-container">
-                <div class="input-group">
-                  <label for="reg-username">用戶名稱</label>
-                  <input
-                    type="text"
-                    id="reg-username"
-                    name="username"
-                    placeholder="3-12字元"
-                    required
-                    class="form-control"
-                  />
-                  <div class="invalid-feedback">請設定3-12字元的帳號</div>
-                </div>
-
-                <div class="input-group">
-                  <label for="reg-password">設定密碼</label>
-                  <input
-                    type="password"
-                    id="reg-password"
-                    name="password"
-                    placeholder="8-12字元"
-                    required
-                    class="form-control"
-                  />
-
-                  <div class="invalid-feedback">請設定8-12字元的密碼</div>
-                </div>
-
-                <div class="input-group">
-                  <label for="confirm-password">確認密碼</label>
-                  <input
-                    type="password"
-                    id="confirm-password"
-                    name="confirm-password"
-                    placeholder="再次輸入密碼"
-                    required
-                    class="form-control"
-                  />
-                  <div class="invalid-feedback">密碼不相同請重新輸入</div>
-                </div>
-                <div class="d-flex align-content-center">
-                  <input type="checkbox" class="col-1" id="terms" required />
-                  <label for="terms" class="label-inline mt-2"
-                    >我已閱讀並同意 <a href="#">服務條款</a></label
-                  >
-                </div>
-              </div>
-              <div class="col-6">
-                <ul style="list-style: none; padding: 0">
-                  <li style="margin-bottom: 12px">
-                    <strong>🍭 正品保證：</strong>
-                    我們堅持只提供正版優質好物，讓您收到的每一份包裹都充滿驚喜與安心。
-                  </li>
-                  <li style="margin-bottom: 12px">
-                    <strong>📦 溫柔配送：</strong>
-                    您的寶貝將經過精細包裝，通常於下單後 3-5
-                    個工作天內，帶著滿滿暖意飛奔向您。
-                  </li>
-                  <li style="margin-bottom: 12px">
-                    <strong>💌 七天鑑賞：</strong>
-                    提供 7
-                    天猶豫期，但請保持商品「全新未拆封」與「包裝完整」，讓它能以最美的樣子尋找下一個擁抱。
-                  </li>
-                  <li style="margin-bottom: 12px">
-                    <strong>🧸 完美主義：</strong>
-                    毛絨玩偶、手工製品難免有些微表情差異，這正是它們獨一無二的靈魂，不屬於瑕疵範圍喔！
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#LoginModal"
-              >已經有帳號？</a
-            >
-            <button id="register-ok" type="button" class="btn btn-sakura">
-              註冊
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+ 
     <!-- 登入modal -->
     <div class="modal" id="LoginModal" tabindex="-1">
       <div class="modal-dialog">
@@ -645,71 +541,7 @@
         const el04 = document.querySelector(".counter04");
         IO.observe(el04);
       });
-      //註冊
-      //判斷是否符合規定
-      $("#reg-username").blur(function () {
-        if ($(this).val().length > 2 && $(this).val().length < 13) {
-          $(this).removeClass("is-invalid").addClass("is-valid");
-          flag_userName = true;
-        } else {
-          $(this).removeClass("is-valid").addClass("is-invalid");
-          flag_userName = false;
-        }
-      });
-      $("#reg-password").blur(function () {
-        //確認密碼顯示不符合規定
-        $("#confirm-password").removeClass("is-valid");
-        $("#confirm-password").addClass("is-invalid");
-        flag_retype_password = false;
-
-        if ($(this).val().length > 7 && $(this).val().length < 13) {
-          $(this).removeClass("is-invalid").addClass("is-valid");
-          flag_password = true;
-        } else {
-          $(this).removeClass("is-valid").addClass("is-invalid");
-          flag_password = false;
-        }
-      });
-      //確認兩次密碼是否相同
-      $("#confirm-password").blur(function () {
-        if ($(this).val() == $("#reg-password").val()) {
-          $(this).removeClass("is-invalid").addClass("is-valid");
-          flag_retype_password = true;
-        } else {
-          $(this).removeClass("is-valid").addClass("is-invalid");
-          flag_retype_password = false;
-        }
-      });
-
-      //註冊按鈕監聽
-      $("#register-ok").click(function () {
-        if (flag_userName && flag_password && flag_retype_password) {
-          let jsonDATA = {
-            username: $("#reg-username").val(),
-            password: $("#reg-password").val(),
-          };
-
-          //傳api註冊
-          axios
-            .post(`${API_URL}/api/register`, jsonDATA)
-            .then(function (response) {
-              console.log(response);
-              if (response.request.status == 200) {
-                Swal.fire({
-                  title: "註冊成功",
-                  text: "註冊成功",
-                  icon: "success",
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    bootstrap.Modal.getOrCreateInstance(
-                      "#registerModal",
-                    ).hide();
-                  }
-                });
-              }
-            });
-        }
-      });
+      
       //登入按鈕監聽
       $("#login-ok").click(function () {
         // 1. 抓取資料
